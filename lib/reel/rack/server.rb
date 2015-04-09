@@ -23,11 +23,7 @@ module Reel
    
       def on_connection(connection)
         connection.each_request do |request|
-          if request.websocket?
-            request.respond :bad_request, "WebSockets not supported"
-          else
-            route_request request
-          end
+          route_request request
         end
       end
    
